@@ -1,13 +1,70 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  margin: 0px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.navbar {
+  flex: 0 1;
+  align-self:stretch;
+  border: 1px solid transparent;
+  padding: 5px;
+  background-color: #f09f7d;
+  font-family: 'Segoe UI Light';
+  text-align: center;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-self:center;
+  justify-content:center;
+  overflow:auto;
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:flex-start;
+}
+
+.note {
+  flex: 1 1 100px;
+  margin: 5px;
+  padding: 5px;
+  max-height: 300px;
+  border: 2px solid black;
+  border-radius: 5px;
+  align-self:flex-start;
+  justify-self: center;
+  background-color: #f2d974;
+  overflow:auto;
+}
+
+.note > p {
+  white-space: pre-wrap;
+}
+
+.note-controls {
+  flex:1;
+}
+
+.no-notes-placeholder {
+  max-height: 30%;
+}
+
+/* for hiding scrollbars */
+/* for webkit based browsers, (chrome, opera, etc) */
+.note::-webkit-scrollbar {
+  display: none;
+}
+
+/* for _other_ browsers */
+.note {
+  scrollbar-width: none; /*Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
 }
