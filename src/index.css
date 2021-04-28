@@ -33,16 +33,17 @@
 }
 
 .note {
-  flex: 1 1 100px;
+  flex: 1 1 150px;
   margin: 5px;
   padding: 5px;
   max-height: 300px;
+  max-width: 300px;
   border: 2px solid black;
   border-radius: 5px;
   align-self:flex-start;
   justify-self: center;
   background-color: #f2d974;
-  overflow:auto;
+  overflow: auto;
 }
 
 .note > p {
