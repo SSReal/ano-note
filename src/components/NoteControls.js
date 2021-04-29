@@ -47,8 +47,6 @@ function NoteControls(props) {
                     placeholder = "Note Text"
                     onChange = {handleChange}
                     value = {text}
-                    rows = {10}
-                    cols = {50}
                 ></textarea>
                 <br />
             </form>

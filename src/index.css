@@ -4,8 +4,9 @@
 
 
 .navbar {
-  flex: 0 1;
-  align-self:stretch;
+  flex: 1;
+  align-self: stretch;
+  max-height: 50px;
   border: 1px solid transparent;
   padding: 5px;
   background-color: #f09f7d;
@@ -20,12 +21,13 @@
   flex-wrap: wrap;
   align-self:center;
   justify-content:center;
+  align-items: center;
   overflow:auto;
 }
 
 .App {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items:center;
@@ -36,7 +38,6 @@
   flex: 1 1 150px;
   margin: 5px;
   padding: 5px;
-  max-height: 300px;
   max-width: 300px;
   border: 2px solid black;
   border-radius: 5px;
@@ -52,10 +53,32 @@
 
 .note-controls {
   flex:1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+/* .note-controls > textarea {
+  max-width: 500px;
+  max-height: 400px;
+  width: 90vw;
+  height: 90vh;
+} */
+
+.note-controls > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90%;
+}
+
+.note-controls > button {
+  align-self: stretch;
+  max-height: 25px;
+  height: 10%;
+}
 .no-notes-placeholder {
-  max-height: 30%;
+  max-height: 30vh;
 }
 
 /* for hiding scrollbars */
@@ -68,4 +91,26 @@
 .note {
   scrollbar-width: none; /*Firefox */
   -ms-overflow-style: none; /* IE 10+ */
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    font-size:16px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  body {
+    font-size: 14px;
+  }
+
+  .note-controls {
+    overflow:auto;
+  }
+
+  
+  .navbar {
+    width: 100%;
+    padding-bottom: 5px;
+    max-height: 40px;
+  }
 }
