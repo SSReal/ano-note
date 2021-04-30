@@ -10,4 +10,4 @@ Now it also has storage facility of notes, powered by mongoDB, and a custom back
 # features: planned
 * click to make a particular note bigger.
 * option to delete a note.
-[.] backend support to save notes in a database.
+[x] backend support to save notes in a database.
