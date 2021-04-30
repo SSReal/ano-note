@@ -18,7 +18,7 @@ function NoteControls(props) {
     function createNote(event) {
         event.preventDefault();
         const newNotes = props.notes.slice(); //copy the array
-        newNotes.unshift(
+        newNotes.push(
             {
                 heading: heading,
                 text: text
