@@ -1,8 +1,6 @@
 # Ano-Note - Note taking app
 This is a note-taking app developed primarily from the point of view of Front-End Web developement.
-It doesn't have storage facility, so everytime, it starts with a blank slate.
-But that will change when I learn backend stuff as well.
-Then the notes will be stored on a database and pulled as needed from it.
+Now it also has storage facility of notes, powered by mongoDB, and a custom backend server written by me.
 
 # features: as of now
 * displays 9 latest notes you have created, more recent ones first.
@@ -12,4 +10,4 @@ Then the notes will be stored on a database and pulled as needed from it.
 # features: planned
 * click to make a particular note bigger.
 * option to delete a note.
-* backend support to save notes in a database.
+[.] backend support to save notes in a database.
