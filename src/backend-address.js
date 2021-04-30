@@ -1,2 +1,2 @@
-const back_address = "http://localhost:9000"
+const back_address = "http://ano-note-backend.herokuapp.com"
 export default back_address;
