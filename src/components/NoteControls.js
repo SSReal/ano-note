@@ -26,7 +26,7 @@ function NoteControls(props) {
         ) // add the new note to the start of the array
         props.setNotes(newNotes);
         //add the new note to the server copy
-        fetch((back_address + "/v1/notes"), {
+        fetch((back_address + "/v2/notes"), {
             method: 'POST',
             body: JSON.stringify({heading: heading, text:text}),
             headers: {
@@ -35,7 +35,7 @@ function NoteControls(props) {
         }).then(response => response.json())
         .then(res => {
             console.log(res);
-        });
+        }).catch((err) => console.log(err));
         console.log(props.notes)
     }
 
