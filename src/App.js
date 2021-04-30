@@ -3,11 +3,12 @@ import './App.css';
 import NavBar from "./components/NavBar"
 import Content from "./components/Content"
 import NoteControls from "./components/NoteControls"
+import back_address from "./backend-address.js"
 
 function App() {
   const [notes, setNotes] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:9000/v1/notes").then(
+    fetch((back_address + "/v1/notes")).then(
       (response) => response.json()
     ).then((res) => setNotes(res)).catch((err) => console.log(err));
   }, [])

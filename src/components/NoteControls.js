@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import back_address from "../backend-address.js"
 
 function NoteControls(props) {
     const [heading, setHeading] = useState("");
@@ -24,6 +25,17 @@ function NoteControls(props) {
             }
         ) // add the new note to the start of the array
         props.setNotes(newNotes);
+        //add the new note to the server copy
+        fetch((back_address + "/v1/notes"), {
+            method: 'POST',
+            body: JSON.stringify({heading: heading, text:text}),
+            headers: {
+                'Content-type': 'application/json; charset = UTF-8'
+            }
+        }).then(response => response.json())
+        .then(res => {
+            console.log(res);
+        });
         console.log(props.notes)
     }
 
