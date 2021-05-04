@@ -52,7 +52,7 @@
 }
 
 .note-controls {
-  flex:1;
+  flex:0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -70,6 +70,11 @@
   flex-direction: column;
   justify-content: flex-start;
   height: 90%;
+}
+
+.note-controls > form > textarea {
+  width: 200px;
+  height: 150px;
 }
 
 .note-controls > button {
@@ -97,6 +102,10 @@
   body {
     font-size:16px;
   }
+
+  .note-controls {
+    flex: 0;
+  }
 }
 @media only screen and (max-width: 400px) {
   body {
@@ -104,6 +113,7 @@
   }
 
   .note-controls {
+    flex: 0.5;
     overflow:auto;
   }
 
