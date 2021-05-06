@@ -35,6 +35,8 @@
 }
 
 .note {
+  position: relative;
+  display:block;
   flex: 1 1 150px;
   margin: 5px;
   padding: 5px;
@@ -123,4 +125,21 @@
     padding-bottom: 5px;
     max-height: 40px;
   }
+}
+
+.note-editing {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.note-editing > input, textarea{
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.note-editing > textarea {
+  opacity:50%;
+  width: 200px;
+  height:max-content;
 }

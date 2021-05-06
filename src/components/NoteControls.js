@@ -36,7 +36,9 @@ function NoteControls(props) {
         .then(res => {
             console.log(res);
         }).catch((err) => console.log(err));
-        console.log(props.notes)
+        setHeading("");
+        setText("");
+        
     }
 
     return (
