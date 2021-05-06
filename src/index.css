@@ -50,7 +50,7 @@
   overflow: auto;
 }
 
-.note > p {
+.note p {
   white-space: pre-wrap;
 }
 
@@ -128,11 +128,11 @@
   }
 }
 
-.note-editing {
+/* .note-editing {
   display:flex;
   flex-direction: column;
   justify-content: center;
-}
+} */
 
 .note-editing > input, textarea{
   background-color: transparent;
