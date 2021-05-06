@@ -5,16 +5,21 @@ import backend_address from "../backend-address";
 function Note(props) {
     const [editing, setEditing] = useState(false);
 
-    //these will only be used when editing a note.
     const [heading, setHeading] = useState(props.heading);
     const [text, setText] = useState(props.text);
+
+    //used to store the unedited note
+    const  [oldNote, setOldNote] = useState({
+        heading: heading,
+        text: text
+    });
 
     const deleteNote = () => {
         fetch(backend_address + "/v2/notes", {
             method: "DELETE",
             body: JSON.stringify({
-                heading: props.heading,
-                text: props.text
+                heading: heading,
+                text: text
             }),
             headers: {
                 "Content-Type":"application/json; charset = UTF-8"
@@ -29,7 +34,32 @@ function Note(props) {
         console.log("edit");
         if(editing) {
             //finish editing, save
-
+            fetch(backend_address + "/v2/notes/update", {
+                method: "POST",
+                body: JSON.stringify({
+                    old: oldNote,
+                    new: {
+                        heading: heading,
+                        text: text
+                    }
+                }),
+                headers : {
+                    "Content-Type" : "application/json; charset = UTF-8"
+                }
+            }).catch((err) => {console.log(err)})
+                .then((res) => res.json())
+                .then((res) => {
+                    if(res.message === "Updated") {
+                        alert("Changes saved successfully");
+                    }
+                })
+        }
+        else {
+            //start editing
+            setOldNote({
+                heading: heading,
+                text: text
+            });
         }
         setEditing(!editing);
     }
@@ -41,10 +71,6 @@ function Note(props) {
                 <p>{text}</p>
             </div> :
             <div className = "note-editing">
-                <h1 onChange = {(event) => {
-                    setHeading(event.target.value);
-                }}>{heading}</h1>
-                <p>{text}</p>
                 <input type = "text" value = {heading} onChange = {(event) => {
                     setHeading(event.target.value);
                 }}/>
@@ -54,8 +80,8 @@ function Note(props) {
             </div>}
             
             <NoteOptions>
-                <Option onClick = {deleteNote}>Delete</Option>
-                <Option onClick = {editNote} >Edit</Option>
+                {(!editing) && <Option onClick = {deleteNote}>Delete</Option>}
+                <Option onClick = {editNote} >{(!editing)?"Edit":"Save Changes"}</Option>
             </NoteOptions>
         </div>
     );

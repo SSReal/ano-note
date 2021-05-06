@@ -41,6 +41,7 @@
   margin: 5px;
   padding: 5px;
   max-width: 300px;
+  min-height: 150px;
   border: 2px solid black;
   border-radius: 5px;
   align-self:flex-start;
@@ -139,7 +140,11 @@
 }
 
 .note-editing > textarea {
-  opacity:50%;
-  width: 200px;
-  height:max-content;
+  overflow: auto;
+  min-height: 140px;
+  
+}
+
+.note-editing > textarea::-webkit-scrollbar {
+  display: none;
 }
