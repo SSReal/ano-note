@@ -41,7 +41,7 @@ function Note(props) {
                 <p>{text}</p>
             </div> :
             <div className = "note-editing">
-                <h1 contentEditable onChange = {(event) => {
+                <h1 onChange = {(event) => {
                     setHeading(event.target.value);
                 }}>{heading}</h1>
                 <p>{text}</p>
