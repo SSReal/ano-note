@@ -24,7 +24,7 @@ function App() {
     new_notes.splice(delId);
     setNotes(new_notes);
     setDelId(-1);
-  }, [delId])
+  }, [delId, notes])
 
   return (
     <div className ="App">
