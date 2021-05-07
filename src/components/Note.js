@@ -94,9 +94,16 @@ const NoteOptions = styled.div`
     display:flex;
     opacity: 0;
     justify-content: space-around;
+    justify-self: flex-end;
 
     &:hover {
         opacity: 100%;
+    }
+
+    @media only screen and (max-width: 560px) {
+        & {
+            opacity: 100%;
+        }
     }
 `;
 

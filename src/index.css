@@ -21,7 +21,7 @@
   flex-wrap: wrap;
   align-self:center;
   justify-content:center;
-  align-items: center;
+  align-items:flex-start;
   overflow:auto;
 }
 
@@ -42,7 +42,6 @@
   margin: 5px;
   padding: 5px;
   max-width: 300px;
-  min-height: 150px;
   border: 2px solid black;
   border-radius: 5px;
   align-self:flex-start;
@@ -62,12 +61,6 @@
   justify-content: flex-start;
 }
 
-/* .note-controls > textarea {
-  max-width: 500px;
-  max-height: 400px;
-  width: 90vw;
-  height: 90vh;
-} */
 
 .note-controls > form {
   display: flex;
@@ -110,6 +103,10 @@
   .note-controls {
     flex: 0;
   }
+
+  .content {
+    max-width: 768px;
+  }
 }
 @media only screen and (max-width: 400px) {
   body {
@@ -129,11 +126,6 @@
   }
 }
 
-/* .note-editing {
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-} */
 
 .note-editing > input, textarea{
   background-color: transparent;
