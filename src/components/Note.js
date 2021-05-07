@@ -26,7 +26,7 @@ function Note(props) {
             }
         }).then((res) => res.json()).then((res) => {
             if(res.message === "Marked for Deletion") {
-                alert("Refresh to see the results");
+                props.setDelId(props.index); //set the delete index to its index
             }
         });
     }
