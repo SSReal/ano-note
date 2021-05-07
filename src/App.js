@@ -11,11 +11,9 @@ function App() {
   useEffect(() => {
     fetch((back_address + "/v2/notes")).then(
       (response) => {
-        console.log(response);
         return response.json()
       }
     ).then((res) => {
-      console.log(res);
       setNotes(res);
     }).catch((err) => console.log(err));
   }, []);
