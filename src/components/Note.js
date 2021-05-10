@@ -7,7 +7,7 @@ function Note(props) {
 
     const [heading, setHeading] = useState(props.heading);
     const [text, setText] = useState(props.text);
-    const [read_only, setReadOnly] = useState(props.read_only);
+    const [read_only] = useState(props.read_only);
 
     //used to store the unedited note
     const  [oldNote, setOldNote] = useState({
@@ -22,7 +22,7 @@ function Note(props) {
             body: JSON.stringify({
                 heading: heading,
                 text: text,
-                ready_only: read_only
+                read_only: read_only
             }),
             headers: {
                 "Content-Type":"application/json; charset = UTF-8"
