@@ -7,11 +7,13 @@ function Note(props) {
 
     const [heading, setHeading] = useState(props.heading);
     const [text, setText] = useState(props.text);
+    const [read_only, setReadOnly] = useState(props.read_only);
 
     //used to store the unedited note
     const  [oldNote, setOldNote] = useState({
         heading: heading,
-        text: text
+        text: text,
+        read_only: read_only
     });
 
     const deleteNote = () => {
@@ -19,7 +21,8 @@ function Note(props) {
             method: "DELETE",
             body: JSON.stringify({
                 heading: heading,
-                text: text
+                text: text,
+                ready_only: read_only
             }),
             headers: {
                 "Content-Type":"application/json; charset = UTF-8"
@@ -40,7 +43,8 @@ function Note(props) {
                     old: oldNote,
                     new: {
                         heading: heading,
-                        text: text
+                        text: text,
+                        read_only: read_only
                     }
                 }),
                 headers : {
@@ -58,7 +62,8 @@ function Note(props) {
             //start editing
             setOldNote({
                 heading: heading,
-                text: text
+                text: text,
+                read_only: read_only
             });
         }
         setEditing(!editing);
@@ -78,11 +83,13 @@ function Note(props) {
                     setText(event.target.value);
                 }}/>
             </div>}
-            
-            <NoteOptions>
-                {(!editing) && <Option onClick = {deleteNote}>Delete</Option>}
-                <Option onClick = {editNote} >{(!editing)?"Edit":"Save Changes"}</Option>
-            </NoteOptions>
+            {!read_only?
+                <NoteOptions>
+                    {(!editing) && <Option onClick = {deleteNote}>Delete</Option>}
+                    <Option onClick = {editNote} >{(!editing)?"Edit":"Save Changes"}</Option>
+                </NoteOptions>
+                :
+                <NoteOptions><p>(Read-Only)</p></NoteOptions>}
         </div>
     );
 };
@@ -104,6 +111,10 @@ const NoteOptions = styled.div`
         & {
             opacity: 100%;
         }
+    }
+
+    > p {
+        font-size: 0.75em;
     }
 `;
 

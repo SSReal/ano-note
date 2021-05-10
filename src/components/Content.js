@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Note from "./Note"
 
 function Content(props) {
     const NoteComponents = props.notes.map(
-        (note, index) => <Note key = {index} index = {index} heading = {note.heading} text = {note.text} setDelId = {props.setDelId}/>);
+        (note, index) => <Note key = {index} index = {index} heading = {note.heading} text = {note.text} read_only = {note.read_only} setDelId = {props.setDelId}/>);
     NoteComponents.reverse(); //to display most recent ones first
     return (
         <div className = "content">

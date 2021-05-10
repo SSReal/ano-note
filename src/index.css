@@ -74,6 +74,12 @@
   height: 150px;
 }
 
+.note-controls > form > p {
+  width: 200px;
+  font-size: 0.85em;
+  align-self: center;
+}
+
 .note-controls > button {
   align-self: stretch;
   max-height: 25px;
